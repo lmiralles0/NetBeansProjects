@@ -9,14 +9,16 @@ public class Persona {
     private Domicilio domicilio;
     private String telefono;
     private TipoContacto tipoContacto;
+    private final String mail;
     
-    public Persona(String nombre, String apellido, Domicilio domicilio, String telefono, TipoContacto tipoContacto)
+    public Persona(String nombre, String apellido, Domicilio domicilio, String telefono, TipoContacto tipoContacto, String mail)
     {
         setNombre(nombre);
         setApellido(apellido);
         setDomicilio(domicilio);
         setTelefono(telefono);
         setTipoContacto(tipoContacto);
+        this.mail = mail;
     }
 
     public String getNombre() {
@@ -58,6 +60,13 @@ public class Persona {
     private void setTipoContacto(TipoContacto tipoContacto) {
         this.tipoContacto = tipoContacto;
     }
+    
+    public String getMail()
+    {
+        return this.mail;
+    }
+    
+    
     
     @Override
     public String toString()
