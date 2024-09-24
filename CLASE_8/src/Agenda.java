@@ -10,7 +10,7 @@ public class Agenda {
     
     public Agenda(String propietario)
     {
-        List personas = new ArrayList<Persona>();
+        personas = new ArrayList<Persona>();
         setPropietario(propietario);
     }
 
@@ -30,12 +30,24 @@ public class Agenda {
     
     
     
-    public boolean agregarPersona(List<Persona> personas, String mail)
+    public boolean agregarPersona(List<Persona> personas, Persona pers)
     {
         boolean retorno = true;
-        if(buscarPersona(personas, mail) == null)
+        Persona aux = buscarPersona(personas, pers.getMail());
+        if(personas != null && !(personas.isEmpty()))
         {
-            retorno = false;
+            if(aux == null)
+            {
+                personas.add(pers);
+            }
+            else
+            {
+                retorno = false;
+            }
+        }
+        else
+        {
+            personas.add(pers);
         }
         return retorno;
     }
@@ -43,7 +55,7 @@ public class Agenda {
     protected Persona buscarPersona(List<Persona> personas, String mail)
     {
         Persona aux = null;
-        if(!(mail.isEmpty()) && personas != null)
+        if(!(mail.isEmpty()) && personas != null && !(personas.isEmpty()))
         {
             for(Persona pers : personas)
             {
