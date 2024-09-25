@@ -1,3 +1,5 @@
+package Objetos;
+import Excepciones.ContacNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 /**
@@ -26,11 +28,8 @@ public class Agenda {
         return personas;
     }
 
-
     
-    
-    
-    public boolean agregarPersona(List<Persona> personas, Persona pers)
+    public boolean agregarPersona(List<Persona> personas, Persona pers) 
     {
         boolean retorno = true;
         Persona aux = buscarPersona(personas, pers.getMail());
@@ -52,7 +51,7 @@ public class Agenda {
         return retorno;
     }
     
-    protected Persona buscarPersona(List<Persona> personas, String mail)
+    protected Persona buscarPersona(List<Persona> personas, String mail) 
     {
         Persona aux = null;
         if(!(mail.isEmpty()) && personas != null && !(personas.isEmpty()))
