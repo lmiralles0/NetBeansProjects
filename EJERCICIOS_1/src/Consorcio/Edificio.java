@@ -76,5 +76,31 @@ public class Edificio {
     }
     
     
+    public void listarVotosNegativos()
+    {
+        for(Departamento depto : _departamentos)
+        {
+            if(depto.getVoto() == Voto.NEGATIVO)
+            {
+                System.out.println(depto);
+            }
+            
+        }
+    }
+    
+    
+    public void mostrarPorcentajeParticipacion()
+    {
+        int participacion = 0;
+        for(Departamento depto : _departamentos)
+        {
+            if(depto.getVoto() != null)
+            {
+                participacion ++;
+            }
+        }
+        double porcentaje = (double) participacion / _departamentos.size() * 100;
+        System.out.println("Porcentaje participacion\n" +  porcentaje);
+    }
 
 }

@@ -11,11 +11,11 @@ public class Departamento {
     private String _dniPropietario;
     private Voto _voto;
     
-    public Departamento(int _unidadFuncional, String _nombrePropietario, String _dniPropietario)
+    public Departamento(int unidadFuncional, String nombrePropietario, String dniPropietario)
     {
-        setUnidadFuncional(_unidadFuncional);
-        setNombrePropietario(_nombrePropietario);
-        setDniPropietario(_dniPropietario);
+        setUnidadFuncional(unidadFuncional);
+        setNombrePropietario(nombrePropietario);
+        setDniPropietario(dniPropietario);
         _voto = null;
     }
 
@@ -23,24 +23,24 @@ public class Departamento {
         return _unidadFuncional;
     }
 
-    private void setUnidadFuncional(int _unidadFuncional) {
-        this._unidadFuncional = _unidadFuncional;
+    private void setUnidadFuncional(int unidadFuncional) {
+        this._unidadFuncional = unidadFuncional;
     }
 
     public String getNombrePropietario() {
         return _nombrePropietario;
     }
 
-    private void setNombrePropietario(String _nombrePropietario) {
-        this._nombrePropietario = _nombrePropietario;
+    private void setNombrePropietario(String nombrePropietario) {
+        this._nombrePropietario = nombrePropietario;
     }
 
     public String getDniPropietario() {
         return _dniPropietario;
     }
 
-    private void setDniPropietario(String _dniPropietario) {
-        this._dniPropietario = _dniPropietario;
+    private void setDniPropietario(String dniPropietario) {
+        this._dniPropietario = dniPropietario;
     }
     
     public Voto getVoto(){
