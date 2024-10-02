@@ -57,8 +57,11 @@ public class Edificio {
         if(_departamentos.size() < _cantidadDeDepartamentos)
         {
             Departamento depto = new Departamento(unidadFuncional, nombrePropietario, dniPropietario);
-            _departamentos.add(depto);
-            return true;
+            if(buscarDepartamento(unidadFuncional) == null)
+            {
+                _departamentos.add(depto);
+                return true;
+            }
         }
         return false;
     }

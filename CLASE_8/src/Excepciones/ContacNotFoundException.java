@@ -5,7 +5,7 @@ package Excepciones;
  *
  * @author Luciano Miralles
  */
-public class ContacNotFoundException extends Exception{
+public class ContacNotFoundException extends RuntimeException{
 
     /**
      * Creates a new instance of <code>ContacNoFoundException</code> without

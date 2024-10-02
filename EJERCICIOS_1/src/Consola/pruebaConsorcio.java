@@ -1,5 +1,9 @@
 
 package Consola;
+import Consorcio.Edificio;
+import Consorcio.Departamento;
+import Consorcio.Voto;
+
 
 /**
  *
@@ -12,6 +16,15 @@ public class pruebaConsorcio {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Edificio edif = new Edificio("Tucuman 1452", 10);
+        if(edif.agregarDepartamento(5,"Luciano Miralles", "37882165") && edif.agregarDepartamento(4,"Hector Manuel", "4267148") && edif.agregarDepartamento(10,"Margarita Recalde", "14042552"))
+        {
+            System.out.print("Se agrego con exito\n");
+        }
+
+        
+        
+        
     }
 
 }

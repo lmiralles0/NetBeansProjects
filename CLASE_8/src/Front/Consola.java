@@ -1,4 +1,5 @@
 package Front;
+import Excepciones.ContacNotFoundException;
 import Objetos.Persona;
 import Objetos.Domicilio;
 import Objetos.Agenda;
@@ -30,16 +31,15 @@ public class Consola {
             System.out.println(MessageFormat.format("La persona {0}", (agenda1.agregarPersona(agenda1.getPersonas(), per2)) ? "fue agregada" : "no fue agregada"));    
             System.out.println(MessageFormat.format("La persona {0}", (agenda1.agregarPersona(agenda1.getPersonas(), per3)) ? "fue agregada" : "no fue agregada"));
             System.out.printf("Nombre %s%n", agenda1.getPersonas().get(1).getNombre());
-            
-            
         }
         catch(Exception e)
         {
             System.out.println("Error");
-            
         }
         
     }
+    
+    
     
 
 }
