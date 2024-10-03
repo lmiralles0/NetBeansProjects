@@ -24,7 +24,6 @@ public class Legajo {
         do
         {
             legajo = rm.nextInt(100, 1000);
-            
         }while(!_legajos.contains(legajo));
         _legajos.add(legajo);
         return legajo;
