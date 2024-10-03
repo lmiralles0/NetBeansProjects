@@ -1,8 +1,8 @@
 
-package Consola;
-import Consorcio.Edificio;
-import Consorcio.Departamento;
-import Consorcio.Voto;
+package consola;
+import consorcio.servicio.Edificio;
+import consorcio.servicio.Departamento;
+import consorcio.servicio.Voto;
 
 
 /**

@@ -1,5 +1,5 @@
 
-package Consorcio;
+package consorcio.servicio;
 
 /**
  *
