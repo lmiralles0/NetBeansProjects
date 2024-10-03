@@ -1,6 +1,4 @@
 package consola;
-
-
 /**
  *
  * @author Luciano Miralles
