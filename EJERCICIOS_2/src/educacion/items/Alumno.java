@@ -2,6 +2,8 @@
 
 package educacion.items;
 
+import java.util.stream.Stream;
+
 /**
  *
  * @author Luciano Miralles
@@ -15,14 +17,14 @@ public class Alumno {
     private char _division;
     private String _dni;
     
-    public Alumno(String nombre, String apellido, int legajo, String grado, char division, String dni)
+    public Alumno(String nombre, String apellido, int legajo, String dni)
     {
         setNombre(nombre);
         setApellido(apellido);
         setLegajo(legajo);
-        setGrado(grado);
-        setDivision(division);
         setDni(dni);
+        setGrado(""); 
+        setDivision(' ');
     }
 
     public String getNombre() {
@@ -53,7 +55,7 @@ public class Alumno {
         return _grado;
     }
 
-    private void setGrado(String _grado) {
+    public void setGrado(String _grado) {
         this._grado = _grado;
     }
 
@@ -61,7 +63,7 @@ public class Alumno {
         return _division;
     }
 
-    private void setDivision(char _division) {
+    public void setDivision(char _division) {
         this._division = _division;
     }
     
@@ -71,5 +73,16 @@ public class Alumno {
     
     private void setDni(String dni){
         this._dni = dni;
+    }
+    
+    
+    @Override  
+    public String toString()
+    {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Grado: " + getGrado() + "\n");
+        sb.append("Division: " + getDivision() + "\n");
+        sb.append(getApellido() +" "+ getNombre() + "\n");
+        return sb.toString();
     }
 }

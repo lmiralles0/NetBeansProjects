@@ -10,21 +10,22 @@ import java.util.Random;
  * @author Luciano Miralles
  */
 public class Legajo {
-    private List<Integer> _legajos;
     
-    Legajo()
+    private List<Integer> _legajos; 
+    
+    public Legajo()
     {
-        _legajos = new ArrayList<>();
+        _legajos = new ArrayList<Integer>();
     }
     
     public int getNextLegajo()
     {
         int legajo = -1;
-        Random rm = new Random(1);
+        Random rm = new Random();
         do
         {
             legajo = rm.nextInt(100, 1000);
-        }while(!_legajos.contains(legajo));
+        }while(_legajos.contains(legajo));
         _legajos.add(legajo);
         return legajo;
     }

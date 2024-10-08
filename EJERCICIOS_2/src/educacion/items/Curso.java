@@ -44,21 +44,15 @@ public class Curso {
         this._alumnos = _alumnos;
     }
     
-    
-    private Alumno buscarAlumno(int legajo)
+    public boolean agregarAlumno(Alumno alm)
     {
-        for(Alumno alumno : _alumnos)
+        if(alm.getDivision() == ' ' && alm.getGrado()== "")
         {
-            if(alumno.getLegajo() == legajo)
-            {
-                return alumno;
-            }
+            alm.setDivision(getDivision());
+            alm.setGrado(getGrado());
+            _alumnos.add(alm);
+            return true;
         }
-        return null;
-    }
-    
-    public boolean agregarAlumno(int legajo)
-    {
-        
+        return false;
     }
 }
