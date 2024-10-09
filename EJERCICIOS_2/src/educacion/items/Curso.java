@@ -46,7 +46,7 @@ public class Curso {
     
     public boolean agregarAlumno(Alumno alm)
     {
-        if(alm.getDivision() == ' ' && alm.getGrado()== "")
+        if(alm.getDivision() == ' ' && alm.getGrado()== null)
         {
             alm.setDivision(getDivision());
             alm.setGrado(getGrado());

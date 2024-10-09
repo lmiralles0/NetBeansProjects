@@ -11,19 +11,27 @@ import java.util.ArrayList;
  */
 public class Escuela {
     
-    private List<Alumno> _alumnos;
-    private static List<Curso> _cursos = new ArrayList<Curso>();
-    private Legajo _legajo;
+    private final List<Alumno> _alumnos;
+    private static final List<Curso> _cursos = new ArrayList<Curso>();
+    private final Legajo _legajo;
     private String _nombreEscuela;
     
     public Escuela(String nombreEscuela)
     {
+        setNombreEscuela(nombreEscuela);
         _alumnos = new ArrayList<Alumno>();
         _legajo = new Legajo();
         cursosPorDefecto();
     }
     
-
+    public String getNombreEscuela(){
+        return this._nombreEscuela;
+    }
+    
+    private void setNombreEscuela(String nombreEscuela){
+        this._nombreEscuela = nombreEscuela;
+    }
+            
     public List<Alumno> getAlumnos() {
         return _alumnos;
     }

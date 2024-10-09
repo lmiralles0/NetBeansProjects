@@ -2,8 +2,6 @@
 
 package educacion.items;
 
-import java.util.stream.Stream;
-
 /**
  *
  * @author Luciano Miralles
@@ -23,7 +21,7 @@ public class Alumno {
         setApellido(apellido);
         setLegajo(legajo);
         setDni(dni);
-        setGrado(""); 
+        setGrado(null); 
         setDivision(' ');
     }
 
@@ -80,11 +78,11 @@ public class Alumno {
     public String toString()
     {
         StringBuilder sb = new StringBuilder();
-        sb.append("Grado: " + getGrado() + "\n");
-        sb.append("Division: " + getDivision() + "\n");
-        sb.append(getApellido() +" "+ getNombre() + "\n");
-        sb.append("DNI: " + getDni() + "\n");
-        sb.append("Nº Legajo: " + getLegajo()+ "\n");
+        sb.append("Grado: ").append(getGrado()).append("\n");
+        sb.append("Division: ").append(getDivision()).append("\n");
+        sb.append(getApellido()).append(" ").append(getNombre()).append("\n");
+        sb.append("DNI: ").append(getDni()).append("\n");
+        sb.append("Nº Legajo: ").append(getLegajo()).append("\n");
         return sb.toString();
     }
 }
