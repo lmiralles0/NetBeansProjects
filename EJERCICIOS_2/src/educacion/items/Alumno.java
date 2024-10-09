@@ -83,6 +83,8 @@ public class Alumno {
         sb.append("Grado: " + getGrado() + "\n");
         sb.append("Division: " + getDivision() + "\n");
         sb.append(getApellido() +" "+ getNombre() + "\n");
+        sb.append("DNI: " + getDni() + "\n");
+        sb.append("Nº Legajo: " + getLegajo()+ "\n");
         return sb.toString();
     }
 }

@@ -14,25 +14,20 @@ public class pruebaEscuela {
         Escuela esc = new Escuela("Escuela Normal Manuel Florencio Mantilla");
         esc.altaAlumno("Horacio", "Miralles" , esc.getLegajo().getNextLegajo(), "38554230");
         esc.altaAlumno("Maximo", "Miralles" , esc.getLegajo().getNextLegajo(), "35426879");
-        
+        esc.altaAlumno("Luciano", "Miralles" , esc.getLegajo().getNextLegajo(), "37882165");
         esc.altaAlumno("Luciano", "Miralles" , esc.getLegajo().getNextLegajo(), "37882165");
         
+        esc.getCursos().getFirst().agregarAlumno(esc.buscarAlumno("37882165"));
         
-        System.out.println(esc.buscarAlumno("37882165"));
-        System.out.println(esc.buscarAlumno("38554230").getLegajo());
-        System.out.println(esc.buscarAlumno("37882165").getLegajo());
-        System.out.println(esc.buscarAlumno("35426879").getLegajo());
+        esc.getCursos().get(6).agregarAlumno(esc.buscarAlumno("38554230"));
         
-        if(esc.getCursos().getFirst().agregarAlumno(esc.buscarAlumno("37882165")))
+        
+        for(int i = 0; i < esc.getAlumnos().size(); i++)
         {
-            System.out.println("\n");
-            System.out.println(esc.buscarAlumno("37882165"));
-            System.out.println("\n");
+            System.out.println(esc.getAlumnos().get(i));
         }
-        if(esc.getCursos().get(6).agregarAlumno(esc.buscarAlumno("38554230")))
-        {
-            System.out.println(esc.buscarAlumno("38554230"));
-        }
+        
+
         
         
     }
