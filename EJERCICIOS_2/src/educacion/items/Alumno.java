@@ -22,7 +22,7 @@ public class Alumno {
         setLegajo(legajo);
         setDni(dni);
         setGrado(null); 
-        setDivision(' ');
+        setDivision('\0');
     }
 
     public String getNombre() {
