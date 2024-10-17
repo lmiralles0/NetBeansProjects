@@ -8,9 +8,9 @@ package modelo;
  */
 public abstract class Publicacion {
 
-    private float _importe;
-    private String _nombre;
-    private int _stock;
+    protected float _importe;
+    protected String _nombre;
+    protected int _stock;
 
     
     
@@ -68,6 +68,7 @@ public abstract class Publicacion {
         sb.append(publicacion(nombre, stock));
         sb.append("Es color: ") .append((esColor()) ? "SI" : "NO") .append("\n");
         sb.append("Importe: $") .append(getImporte()) .append("\n");
+        sb.append("--------------------------------------------------");
         return sb.toString();
     }
             
