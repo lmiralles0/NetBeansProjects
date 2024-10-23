@@ -13,11 +13,17 @@ public abstract class Disco {
     protected int anioLanzamiento;
     protected String titulo;
     protected float precio;
-    protected Random generadorDeAnio = new Random();
+    protected static Random generadorDeAnio;
     
+    
+    public Disco()
+    {
+        generadorDeAnio = new Random();
+    }
         
     public Disco(String titulo, float precio, Artista artista)
     {
+        this();
         this.titulo = titulo;
         this.precio = precio;
         this.artista = artista;
@@ -68,6 +74,7 @@ public abstract class Disco {
         return false;
     }
 
+    
     @Override
     public String toString() {
         return mostrar(this);
