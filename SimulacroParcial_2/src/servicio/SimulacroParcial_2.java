@@ -1,5 +1,5 @@
 
-package simulacroparcial_2;
+package servicio;
 
 /**
  *
