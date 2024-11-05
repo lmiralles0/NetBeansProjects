@@ -12,7 +12,7 @@ public abstract class Libro {
     protected int cantidadDePaginas;
     protected String titulo;
     protected float precio;
-    protected Random generadorDePaginas;
+    protected static Random generadorDePaginas;
     
     public Libro()
     {
@@ -34,7 +34,7 @@ public abstract class Libro {
     
     public int getCantidadDePaginas()
     {
-        if(this.cantidadDePaginas == 0)
+        if(cantidadDePaginas == 0)
         {
             cantidadDePaginas = generadorDePaginas.nextInt(31, 912);
         }
@@ -51,7 +51,7 @@ public abstract class Libro {
         StringBuilder sb = new StringBuilder();
         sb.append("AUTOR: ").append(lb.autor.getNombreApellido()) .append("\n");
         sb.append("TITULO: ").append(lb.titulo) .append("\n");
-        sb.append("CANT. PAGINAS: ").append(lb.cantidadDePaginas) .append("\n");
+        sb.append("CANT. PAGINAS: ").append(lb.getCantidadDePaginas()) .append("\n");
         sb.append("PRECIO: ").append(lb.precio) .append("\n");
         return sb.toString();
     }

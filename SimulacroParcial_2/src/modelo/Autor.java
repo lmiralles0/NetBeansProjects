@@ -25,7 +25,7 @@ public class Autor {
         StringBuilder sb = new StringBuilder();
         if(this != null)
         {
-            sb.append(this.nombre) .append(this.apellido) .append("\n");
+            sb.append(this.nombre) .append(" - ") .append(this.apellido);
         }
         return sb.toString();
     }
