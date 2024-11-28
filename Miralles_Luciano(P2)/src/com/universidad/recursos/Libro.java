@@ -2,6 +2,7 @@
 
 package com.universidad.recursos;
 
+import com.universidad.excepciones.CategoriaInvalidaException;
 import java.time.LocalDate;
 import java.util.Random;
 
@@ -15,12 +16,14 @@ public class Libro extends RecursoAcademico{
     private int numeroPaginas;
     private String editorial;
     private Formato formato;
-
+    private String categoria;
+    
     public Libro(int numeroPaginas, String editorial, Formato formato, String identificador, String titulo, LocalDate fechaCreacion, String autor) {
         super(identificador, titulo, fechaCreacion, autor);
         this.numeroPaginas = numeroPaginas;
         this.editorial = editorial;
         this.formato = formato;
+        this.categoria = null;
     }
 
     
@@ -52,6 +55,60 @@ public class Libro extends RecursoAcademico{
     {
         return this.formato == Formato.DIGITAL;
     }
+    
+    
+    @Override
+    public String[] obtenerCategoriasClasificacion()
+    {
+        String[] categorias = new String[3];
+        categorias[0] = "Ficcion literaria";
+        categorias[1] = "No ficcion";
+        categorias[2] = "Academicos";
+        return categorias;
+    }
+    
+    
+    @Override
+    public void asignarCategoria(String categoria) throws CategoriaInvalidaException
+    {
+        if(this.categoria == null)
+        {
+            for(int i = 0; i < obtenerCategoriasClasificacion().length; i++)
+            {
+                try{
+                    if(obtenerCategoriasClasificacion()[i] == categoria)
+                    {
+                        this.categoria = categoria;
+                        break;
+                    }
+                    else if( i == 2)
+                    {
+                        throw new CategoriaInvalidaException("Error categoria, invalida.\n");
+                    }
+                }catch(CategoriaInvalidaException e) {
+                    e.getMessage();
+                }
+            }
+        }
+    }
+    
+    
+    @Override
+    public double obtenerPuntaje()
+    {
+        return calcularRelevancia()* 2;
+    }
+    
+    @Override
+    public void realizarEvaluacion(Evaluador evaluador)
+    {
+        evaluador = (RecursoAcademico ra) -> {
+            Libro ar = (Libro) ra;
+            return ar.obtenerPuntaje() * 5;
+        };
+        
+    }
+    
     
 
 }

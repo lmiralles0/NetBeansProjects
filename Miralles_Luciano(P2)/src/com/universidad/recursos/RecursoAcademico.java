@@ -3,12 +3,14 @@
 package com.universidad.recursos;
 
 import java.time.LocalDate;
+import com.universidad.interfaces.Clasificable;
+import com.universidad.interfaces.Evaluable;
 
 /**
  *
  * @author Luciano Miralles
  */
-public abstract class RecursoAcademico {
+public abstract class RecursoAcademico implements Clasificable, Evaluable{
 
     protected String identificador;
     protected String titulo;
