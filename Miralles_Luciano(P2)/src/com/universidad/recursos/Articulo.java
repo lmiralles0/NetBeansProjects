@@ -2,6 +2,7 @@
 
 package com.universidad.recursos;
 
+import com.universidad.excepciones.CategoriaInvalidaException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +16,7 @@ public class Articulo extends RecursoAcademico{
     
     private List<String> palabrasClave = new ArrayList<String>();
     private String revista;
+    private String categoria;
 
     public Articulo(List<String> palabrasClave, String revista, String identificador, String titulo, LocalDate fechaCreacion, String autor) {
         super(identificador, titulo, fechaCreacion, autor);
@@ -50,6 +52,56 @@ public class Articulo extends RecursoAcademico{
     public int contarPalabrasClave()
     {
         return this.palabrasClave.size();
+    }
+    
+    
+    @Override
+    public String[] obtenerCategoriasClasificacion()
+    {
+        String[] categorias = new String[3];
+        categorias[0] = "Divulgatorios";
+        categorias[1] = "Periodisticos";
+        categorias[2] = "Cientificos";
+        return categorias;
+    }
+    
+    
+    @Override
+    public void asignarCategoria(String categoria) throws CategoriaInvalidaException
+    {
+        if(this.categoria == null)
+        {
+            for(int i = 0; i < obtenerCategoriasClasificacion().length; i++)
+            {
+                try{
+                    if(obtenerCategoriasClasificacion()[i] == categoria)
+                    {
+                        this.categoria = categoria;
+                        break;
+                    }
+                    else if( i == 2)
+                    {
+                        throw new CategoriaInvalidaException("Error categoria, invalida.\n");
+                    }
+                }catch(CategoriaInvalidaException e) {
+                    e.getMessage();
+                }
+            }
+        }
+    }
+    
+    
+    @Override
+    public double obtenerPuntaje()
+    {
+        return calcularRelevancia()* 2;
+    }
+    
+    
+    @Override
+    public void realizarEvaluacion(Evaluador evaluador)
+    {
+
     }
 
 }

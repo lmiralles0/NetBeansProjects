@@ -102,10 +102,7 @@ public class Libro extends RecursoAcademico{
     @Override
     public void realizarEvaluacion(Evaluador evaluador)
     {
-        evaluador = (RecursoAcademico ra) -> {
-            Libro ar = (Libro) ra;
-            return ar.obtenerPuntaje() * 5;
-        };
+        
         
     }
     

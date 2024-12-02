@@ -2,6 +2,7 @@
 
 package com.universidad.recursos;
 
+import com.universidad.excepciones.CategoriaInvalidaException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +17,7 @@ public class TrabajoInvestigacion extends RecursoAcademico{
     private List<String> autores = new ArrayList<String>();
     private String lineaInvestigacion;
     private boolean financiamiento;
+    private String categoria;
 
     public TrabajoInvestigacion(List<String> autores, String lineaInvestigacion, boolean financiamiento, String identificador, String titulo, LocalDate fechaCreacion, String autor) {
         super(identificador, titulo, fechaCreacion, autor);
@@ -55,4 +57,52 @@ public class TrabajoInvestigacion extends RecursoAcademico{
     }
     
     
+    @Override
+    public String[] obtenerCategoriasClasificacion()
+    {
+        String[] categorias = new String[3];
+        categorias[0] = "Experimental";
+        categorias[1] = "Teorico";
+        categorias[2] = "Aplicado";
+        return categorias;
+    }
+    
+    
+    @Override
+    public void asignarCategoria(String categoria) throws CategoriaInvalidaException
+    {
+        if(this.categoria == null)
+        {
+            for(int i = 0; i < obtenerCategoriasClasificacion().length; i++)
+            {
+                try{
+                    if(obtenerCategoriasClasificacion()[i] == categoria)
+                    {
+                        this.categoria = categoria;
+                        break;
+                    }
+                    else if( i == 2)
+                    {
+                        throw new CategoriaInvalidaException("Error categoria, invalida.\n");
+                    }
+                }catch(CategoriaInvalidaException e) {
+                    e.getMessage();
+                }
+            }
+        }
+    }
+    
+    
+    @Override
+    public double obtenerPuntaje()
+    {
+        return calcularRelevancia()* 2;
+    }
+    
+    
+    @Override
+    public void realizarEvaluacion(Evaluador evaluador)
+    {
+
+    }
 }
