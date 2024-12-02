@@ -3,6 +3,7 @@
 package com.universidad.recursos;
 
 import com.universidad.excepciones.CategoriaInvalidaException;
+import com.universidad.interfaces.Evaluador;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,11 +18,13 @@ public class Articulo extends RecursoAcademico{
     private List<String> palabrasClave = new ArrayList<String>();
     private String revista;
     private String categoria;
+    private double puntaje;
 
     public Articulo(List<String> palabrasClave, String revista, String identificador, String titulo, LocalDate fechaCreacion, String autor) {
         super(identificador, titulo, fechaCreacion, autor);
         this.palabrasClave = palabrasClave;
         this.revista = revista;
+        this.puntaje = 0;
     }
     
     
@@ -94,14 +97,13 @@ public class Articulo extends RecursoAcademico{
     @Override
     public double obtenerPuntaje()
     {
-        return calcularRelevancia()* 2;
+        return calcularRelevancia() * this.puntaje* 2;
     }
     
     
     @Override
-    public void realizarEvaluacion(Evaluador evaluador)
-    {
-
+    public void realizarEvaluacion(Evaluador evaluador) {
+        this.puntaje = evaluador.evaluar(this);
     }
 
 }

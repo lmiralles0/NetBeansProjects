@@ -21,6 +21,7 @@ public class Vista extends Application {
             Parent root = FXMLLoader.load(getClass().getResource("/com/modelo/Ventana.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
+            primaryStage.setTitle("Menu principal");
             primaryStage.show();
             
         }catch(IOException e){
@@ -33,6 +34,6 @@ public class Vista extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+        
     }
-    
 }

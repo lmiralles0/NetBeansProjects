@@ -1,7 +1,6 @@
 
 package com.universidad.interfaces;
 
-import com.universidad.recursos.RecursoAcademico;
 
 /**
  *
@@ -11,7 +10,5 @@ public interface Evaluable {
     
     double obtenerPuntaje();
     void realizarEvaluacion(Evaluador evaluador);
-    interface Evaluador{
-        double evaluacion(RecursoAcademico ra);
-    }
+    
 }

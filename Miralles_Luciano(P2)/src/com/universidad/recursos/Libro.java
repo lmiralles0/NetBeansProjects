@@ -3,6 +3,7 @@
 package com.universidad.recursos;
 
 import com.universidad.excepciones.CategoriaInvalidaException;
+import com.universidad.interfaces.Evaluador;
 import java.time.LocalDate;
 import java.util.Random;
 
@@ -17,6 +18,7 @@ public class Libro extends RecursoAcademico{
     private String editorial;
     private Formato formato;
     private String categoria;
+    private double puntaje;
     
     public Libro(int numeroPaginas, String editorial, Formato formato, String identificador, String titulo, LocalDate fechaCreacion, String autor) {
         super(identificador, titulo, fechaCreacion, autor);
@@ -24,6 +26,7 @@ public class Libro extends RecursoAcademico{
         this.editorial = editorial;
         this.formato = formato;
         this.categoria = null;
+        this.puntaje = 0;
     }
 
     
@@ -96,14 +99,13 @@ public class Libro extends RecursoAcademico{
     @Override
     public double obtenerPuntaje()
     {
-        return calcularRelevancia()* 2;
+        return calcularRelevancia() * this.puntaje* 2;
     }
     
+    
     @Override
-    public void realizarEvaluacion(Evaluador evaluador)
-    {
-        
-        
+    public void realizarEvaluacion(Evaluador evaluador) {
+        this.puntaje = evaluador.evaluar(this);
     }
     
     

@@ -3,6 +3,7 @@
 package com.universidad.recursos;
 
 import com.universidad.excepciones.CategoriaInvalidaException;
+import com.universidad.interfaces.Evaluador;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +19,7 @@ public class TrabajoInvestigacion extends RecursoAcademico{
     private String lineaInvestigacion;
     private boolean financiamiento;
     private String categoria;
+    private double puntaje;
 
     public TrabajoInvestigacion(List<String> autores, String lineaInvestigacion, boolean financiamiento, String identificador, String titulo, LocalDate fechaCreacion, String autor) {
         super(identificador, titulo, fechaCreacion, autor);
@@ -96,13 +98,12 @@ public class TrabajoInvestigacion extends RecursoAcademico{
     @Override
     public double obtenerPuntaje()
     {
-        return calcularRelevancia()* 2;
+        return calcularRelevancia() * this.puntaje* 2;
     }
     
     
     @Override
-    public void realizarEvaluacion(Evaluador evaluador)
-    {
-
+    public void realizarEvaluacion(Evaluador evaluador) {
+        this.puntaje = evaluador.evaluar(this);
     }
 }
