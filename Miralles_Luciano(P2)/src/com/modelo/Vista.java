@@ -1,6 +1,7 @@
 
 package com.modelo;
 
+import com.universidad.gestores.GestorRecurso;
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -23,7 +24,6 @@ public class Vista extends Application {
             primaryStage.setScene(scene);
             primaryStage.setTitle("Menu principal");
             primaryStage.show();
-            
         }catch(IOException e){
             
         }
@@ -34,6 +34,5 @@ public class Vista extends Application {
      */
     public static void main(String[] args) {
         launch(args);
-        
     }
 }

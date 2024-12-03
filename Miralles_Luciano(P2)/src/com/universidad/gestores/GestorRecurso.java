@@ -7,6 +7,7 @@ import java.util.List;
 import com.universidad.excepciones.LimiteRecursosException;
 import com.universidad.excepciones.RecursoNoEncontradoException;
 import com.universidad.interfaces.FiltroRecurso;
+import java.io.Serializable;
 import java.util.Comparator;
 import java.util.stream.Collectors;
 
@@ -14,7 +15,7 @@ import java.util.stream.Collectors;
  *
  * @author Luciano Miralles
  */
-public class GestorRecurso {
+public class GestorRecurso implements Serializable{
     
     private List<RecursoAcademico> recursos;
     private int limiteRecursos;
@@ -22,16 +23,16 @@ public class GestorRecurso {
     
     public GestorRecurso()
     {
-        recursos = new ArrayList<RecursoAcademico>();
+        recursos = new ArrayList<>();
     }
             
     public GestorRecurso(int limiteRecursos) 
     {
         this();
         this.limiteRecursos = limiteRecursos;
-        recursos = new ArrayList<RecursoAcademico>(limiteRecursos);
+        recursos = new ArrayList<>(limiteRecursos);
     }
-    
+
     
     public String agregarRecursos(RecursoAcademico recurso) throws LimiteRecursosException, RecursoNoEncontradoException
     {
@@ -78,5 +79,7 @@ public class GestorRecurso {
     }
     
     
-    
+    public void informe() {
+        recursos.forEach(recursoAcademico -> recursoAcademico.mostrarDetalles());
+    }
 }

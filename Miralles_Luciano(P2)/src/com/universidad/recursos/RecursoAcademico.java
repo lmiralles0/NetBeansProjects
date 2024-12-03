@@ -5,12 +5,13 @@ package com.universidad.recursos;
 import java.time.LocalDate;
 import com.universidad.interfaces.Clasificable;
 import com.universidad.interfaces.Evaluable;
+import java.io.Serializable;
 
 /**
  *
  * @author Luciano Miralles
  */
-public abstract class RecursoAcademico implements Clasificable, Evaluable{
+public abstract class RecursoAcademico implements Clasificable, Evaluable, Serializable{
 
     protected String identificador;
     protected String titulo;
