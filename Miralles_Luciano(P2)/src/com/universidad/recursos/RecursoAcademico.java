@@ -25,6 +25,15 @@ public abstract class RecursoAcademico implements Clasificable, Evaluable{
     }
     
     
+    public String getIdentificador(){
+        return this.identificador;
+    }
+    
+    
+    public String getTitulo(){
+        return this.titulo;
+    }
+    
     
     public abstract double calcularRelevancia();
     public abstract void mostrarDetalles();

@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -14,7 +13,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -42,8 +40,8 @@ public class VentanaController implements Initializable {
             stage.setTitle("Recursos Academicos");
             stage.initModality(Modality.APPLICATION_MODAL);
             Stage ventanaPrincipal = (Stage)((javafx.scene.Node)event.getSource()).getScene().getWindow();
-            ventanaPrincipal.hide();
             stage.show();
+            ventanaPrincipal.hide();
             stage.setOnCloseRequest(e -> ventanaPrincipal.show());
         }catch(IOException a)
         {
