@@ -23,9 +23,9 @@ import javafx.scene.layout.AnchorPane;
  * @author Luciano Miralles
  */
 public class VentanaRecursosController implements Initializable {
-    
-    public GestorRecurso gestor = new GestorRecurso(50);
-    //LIBRO
+    //<editor-fold desc="CONTROLES">
+    //<editor-fold desc="LIBROS">
+
     @FXML
     private ComboBox<Libro.Formato> comboBoxFormato;
     
@@ -36,14 +36,18 @@ public class VentanaRecursosController implements Initializable {
     
     @FXML
     private DatePicker datePickerFechaLibro;
-      
-  
-    //LIBRO
+
+    //</editor-fold>
+    
+    //<editor-fold desc="ARTICULO">
+    
+    //</editor-fold>
+    //<editor-fold desc="TRABAJO INVESTIGACION">
+    
+    //</editor-fold>
+    //</editor-fold>
     
     
-    //ARTICULO
-    
-    //ARTICULO
     @FXML
     private AnchorPane anchorPaneLibro;
 
@@ -58,16 +62,15 @@ public class VentanaRecursosController implements Initializable {
     
     
     @FXML
-    public void guardarRecursoLibro(MouseEvent event) throws RecursoNoEncontradoException, LimiteRecursosException
+    public void guardarRecursoLibro(MouseEvent event)
     {
         Libro aux = null;
         boolean action = verificarControls(anchorPaneLibro);
         if(action)
         {
             aux = new Libro(Integer.parseInt(textFieldNumeroPaginas.getText()), textFieldEditorial.getText(), Libro.Formato.valueOf(comboBoxFormato.getPromptText()), "AB"+textFieldIdentificadorLibro.getText(),textFieldTituloLibro.getText(),datePickerFechaLibro.getValue(),textFieldAutorLibro.getText());
-            gestor.agregarRecursos(aux);
         }
-        messageAlert(action);
+        //messageAlert(action);
         resetControls(anchorPaneLibro);
     }
     
@@ -75,7 +78,7 @@ public class VentanaRecursosController implements Initializable {
     @FXML
     private void guardarRecursoArticulo(MouseEvent event)
     {
-        messageAlert(verificarControls(anchorPaneArticulo));
+        //messageAlert(verificarControls(anchorPaneArticulo));
         resetControls(anchorPaneArticulo);
     }
     
@@ -83,13 +86,13 @@ public class VentanaRecursosController implements Initializable {
     @FXML
     private void guardarRecursoTrabajoInvestigacion(MouseEvent event)
     {
-        messageAlert(verificarControls(anchorPaneTrabajoInvestigacion));
+        //messageAlert(verificarControls(anchorPaneTrabajoInvestigacion));
         resetControls(anchorPaneTrabajoInvestigacion);
     }
     
         
     
-    private void messageAlert(boolean resultado)
+    /*private void messageAlert(boolean resultado)
     {
         if(resultado == true)
         {
@@ -106,7 +109,7 @@ public class VentanaRecursosController implements Initializable {
         }
         
     }
-    
+    */
     
     
     private void resetControls(AnchorPane anchorPane) {
