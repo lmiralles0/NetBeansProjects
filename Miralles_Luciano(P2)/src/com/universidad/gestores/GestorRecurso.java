@@ -34,19 +34,17 @@ public class GestorRecurso implements Serializable{
     }
 
     
-    public String agregarRecursos(RecursoAcademico recurso) throws LimiteRecursosException, RecursoNoEncontradoException
+    public void agregarRecursos(RecursoAcademico recurso) 
     {
-        try{
-            if(recursos.size() >= limiteRecursos && (buscarRecurso(recurso.getIdentificador(), recurso.getTitulo()) != null))
-            {
-                throw new LimiteRecursosException("Error se alcanzo el limite de recursos.\n");
+        try {
+            if (recursos.size() >= limiteRecursos) {
+                throw new LimiteRecursosException("Se ha alcanzado el límite de recursos permitidos.");
             }
             recursos.add(recurso);
-            return "Recurso cargado con exito";
-        }catch(LimiteRecursosException e)
-        {
-            return e.getMessage();
+        } catch (LimiteRecursosException e) {
+            System.out.println(e.getMessage());
         }
+    
     }
     
     
