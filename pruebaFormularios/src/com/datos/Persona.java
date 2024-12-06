@@ -4,11 +4,13 @@ package com.datos;
 
 import java.io.Serializable;
 
+
 /**
  *
  * @author Luciano Miralles
  */
 public class Persona implements Serializable{
+
     
     private final String nombre;
     private final String apellido;
@@ -20,6 +22,22 @@ public class Persona implements Serializable{
         this.edad = edad;
     }
     
+    
+    public String getNombre() {
+        return nombre;
+    }
+
+    
+    public String getApellido() {
+        return apellido;
+    }
+
+    
+    public int getEdad() {
+        return edad;
+    }
+    
+        
     @Override
     public String toString()
     {

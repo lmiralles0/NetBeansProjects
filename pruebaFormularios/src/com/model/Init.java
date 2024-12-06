@@ -33,7 +33,7 @@ public class Init extends Application {
             Scene scene = new Scene(load);
             
             primaryStage.setScene(scene);
-            primaryStage.setTitle("Hello World!");
+            primaryStage.setTitle("Entrada");
             primaryStage.show();
         } catch (IOException ex) {
             
